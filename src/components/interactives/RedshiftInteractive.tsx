@@ -95,12 +95,12 @@ export default function RedshiftInteractive() {
   const z = distance[0] * 0.05; 
 
   return (
-    <Card className="w-full max-w-2xl mx-auto my-8 border-slate-800 bg-[#0b101a]">
+    <Card className="w-full max-w-2xl mx-auto my-8 border-[var(--nasa-bg-hover)] bg-[var(--nasa-bg-secondary)]">
       <CardHeader>
-        <CardTitle className="text-white">透视时间：宇宙膨胀与红移</CardTitle>
+        <CardTitle className="text-[var(--nasa-text)]">透视时间：宇宙膨胀与红移</CardTitle>
       </CardHeader>
       <CardContent className="space-y-8">
-        <div className="relative h-80 bg-slate-900 rounded-lg overflow-hidden">
+        <div className="relative h-80 bg-[var(--nasa-bg-tertiary)] rounded-lg overflow-hidden">
           <Canvas camera={{ position: [0, 0, 8], fov: 50 }}>
             <color attach="background" args={['#020813']} />
             <ambientLight intensity={0.2} />
@@ -109,7 +109,7 @@ export default function RedshiftInteractive() {
             <UniverseModel distance={distance[0]} />
             <OrbitControls enableZoom={false} enablePan={false} />
           </Canvas>
-          <div className="absolute top-2 right-2 text-xs text-slate-400 pointer-events-none bg-slate-900/80 p-1 rounded">
+          <div className="absolute top-2 right-2 text-xs text-[var(--nasa-text-secondary)] pointer-events-none bg-[var(--nasa-bg-tertiary)]/80 p-1 rounded">
             拖动旋转视角
           </div>
           <div className="absolute bottom-4 left-4 text-xs text-blue-400 font-bold pointer-events-none">
@@ -123,8 +123,8 @@ export default function RedshiftInteractive() {
         <div className="space-y-6">
           <div className="space-y-2">
             <div className="flex justify-between items-center">
-              <label className="font-medium text-slate-200">星系相对距离: {distance[0]} 单位</label>
-              <span className="text-sm text-slate-400 font-mono">红移值 (z): {z.toFixed(2)}</span>
+              <label className="font-medium text-[var(--nasa-text)]">星系相对距离: {distance[0]} 单位</label>
+              <span className="text-sm text-[var(--nasa-text-secondary)] font-mono">红移值 (z): {z.toFixed(2)}</span>
             </div>
             <Slider 
               value={distance} 
@@ -133,10 +133,10 @@ export default function RedshiftInteractive() {
               step={1} 
               className="w-full"
             />
-            <p className="text-xs text-slate-400">拖动滑块增加星系距离。距离越远，宇宙膨胀导致的光波拉伸越严重，颜色向红端移动（甚至进入不可见的红外区域）。</p>
+            <p className="text-xs text-[var(--nasa-text-secondary)]">拖动滑块增加星系距离。距离越远，宇宙膨胀导致的光波拉伸越严重，颜色向红端移动（甚至进入不可见的红外区域）。</p>
           </div>
 
-          <div className="p-4 bg-slate-800/50 rounded-md border border-slate-700 text-sm text-slate-300">
+          <div className="p-4 bg-[var(--nasa-bg-tertiary)]/50 rounded-md border border-[var(--nasa-bg-hover)] text-sm text-[var(--nasa-text-secondary)]">
             <strong>原理解析：</strong> 
             由于宇宙空间本身在不断膨胀，遥远星系发出的光在穿越空间到达地球的过程中，其波长会被拉长。波长变长意味着光向光谱的红端移动，这就是“红移”。
             <br/><br/>

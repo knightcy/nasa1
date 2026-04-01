@@ -93,12 +93,12 @@ export default function IcebergInteractive() {
   ];
 
   return (
-    <Card className="w-full max-w-2xl mx-auto my-8 border-slate-800 bg-[#0b101a]">
+    <Card className="w-full max-w-2xl mx-auto my-8 border-[var(--nasa-bg-hover)] bg-[var(--nasa-bg-secondary)]">
       <CardHeader>
-        <CardTitle className="text-white">系统思维：冰山模型 (Iceberg Diagram)</CardTitle>
+        <CardTitle className="text-[var(--nasa-text)]">系统思维：冰山模型 (Iceberg Diagram)</CardTitle>
       </CardHeader>
       <CardContent className="space-y-8">
-        <div className="relative h-96 bg-slate-900 rounded-lg overflow-hidden">
+        <div className="relative h-96 bg-[var(--nasa-bg-tertiary)] rounded-lg overflow-hidden">
           <Canvas camera={{ position: [0, 2, 10], fov: 50 }}>
             <color attach="background" args={['#020813']} />
             <ambientLight intensity={0.5} />
@@ -106,8 +106,34 @@ export default function IcebergInteractive() {
             <IcebergModel activeLayer={activeLayer} setActiveLayer={setActiveLayer} />
             <OrbitControls enableZoom={false} maxPolarAngle={Math.PI / 2 + 0.2} minPolarAngle={0.2} />
           </Canvas>
-          <div className="absolute top-2 right-2 text-xs text-slate-400 pointer-events-none bg-slate-900/80 p-1 rounded">
+          <div className="absolute top-2 right-2 text-xs text-[var(--nasa-text-secondary)] pointer-events-none bg-[var(--nasa-bg-tertiary)]/80 p-1 rounded">
             点击冰山各层查看详情 / 拖动旋转
+          </div>
+        </div>
+
+        <div className="space-y-6">
+          {/* @ts-ignore */}
+          <Accordion type="single" collapsible value={activeLayer || undefined} onValueChange={setActiveLayer}>
+            {layers.map(layer => (
+              <AccordionItem key={layer.id} value={layer.id} className="border-[var(--nasa-bg-hover)]">
+                <AccordionTrigger className="font-bold text-[var(--nasa-text)] hover:text-[var(--nasa-accent)]">{layer.title}</AccordionTrigger>
+                <AccordionContent className="text-[var(--nasa-text-secondary)]">
+                  {layer.description}
+                  <div className="mt-4 p-3 bg-[var(--nasa-bg-tertiary)]/50 rounded border border-[var(--nasa-bg-hover)] text-sm text-[var(--nasa-text-secondary)]">
+                    <strong>如何应对：</strong>
+                    {layer.id === 'events' && ' 反应 (React) - 解决眼前的危机。'}
+                    {layer.id === 'patterns' && ' 预测 (Anticipate) - 寻找规律并提前准备。'}
+                    {layer.id === 'structures' && ' 设计 (Design) - 改变系统结构以避免问题发生。'}
+                    {layer.id === 'mental-models' && ' 转变 (Transform) - 改变根本的信念和价值观，实现系统性变革。'}
+                  </div>
+                </AccordionContent>
+              </AccordionItem>
+            ))}
+          </Accordion>
+
+          <div className="p-4 bg-[var(--nasa-bg-tertiary)]/50 rounded-md border border-[var(--nasa-bg-hover)] text-sm text-[var(--nasa-text-secondary)]">
+            <strong>原理解析：</strong> 
+            在面对复杂的全球性问题（如气候变化、教育不公平）时，我们往往只看到水面上的"事件"。冰山模型帮助我们向下挖掘，寻找导致这些事件反复发生的深层"模式"、"结构"和"心智模式"。只有改变最深层的心智模式，才能实现真正的系统性变革。
           </div>
         </div>
 

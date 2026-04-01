@@ -148,12 +148,12 @@ export default function HohmannInteractive() {
   };
 
   return (
-    <Card className="w-full max-w-2xl mx-auto my-8 border-slate-800 bg-[#0b101a]">
+    <Card className="w-full max-w-2xl mx-auto my-8 border-[var(--nasa-bg-hover)] bg-[var(--nasa-bg-secondary)]">
       <CardHeader>
-        <CardTitle className="text-white">恐怖七分钟：霍曼转移轨道</CardTitle>
+        <CardTitle className="text-[var(--nasa-text)]">恐怖七分钟：霍曼转移轨道</CardTitle>
       </CardHeader>
       <CardContent className="space-y-8">
-        <div className="relative h-96 bg-slate-900 rounded-lg overflow-hidden">
+        <div className="relative h-96 bg-[var(--nasa-bg-tertiary)] rounded-lg overflow-hidden">
           <Canvas camera={{ position: [0, 8, 8], fov: 50 }}>
             <color attach="background" args={['#020813']} />
             <ambientLight intensity={0.1} />
@@ -171,12 +171,12 @@ export default function HohmannInteractive() {
           <Button onClick={startTransfer} disabled={isTransferring || transferProgress > 0} className="bg-blue-600 hover:bg-blue-700 text-white">
             {isTransferring ? '转移中...' : '启动霍曼转移'}
           </Button>
-          <Button variant="outline" onClick={reset} className="border-slate-600 text-slate-300 hover:bg-slate-800">
+          <Button variant="outline" onClick={reset} className="border-[var(--nasa-bg-hover)] text-[var(--nasa-text-secondary)] hover:bg-[var(--nasa-bg-hover)]">
             重置
           </Button>
         </div>
 
-        <div className="p-4 bg-slate-800/50 rounded-md border border-slate-700 text-sm text-slate-300">
+        <div className="p-4 bg-[var(--nasa-bg-tertiary)]/50 rounded-md border border-[var(--nasa-bg-hover)] text-sm text-[var(--nasa-text-secondary)]">
           <strong>原理解析：</strong> 
           霍曼转移轨道（Hohmann Transfer Orbit）是连接两个共面圆轨道的半椭圆轨道。它是最节省燃料的转移方式。
           <br/><br/>

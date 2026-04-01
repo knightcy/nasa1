@@ -4,6 +4,7 @@
 @import "@fontsource-variable/geist";
 
 @custom-variant dark (&:is(.dark *));
+@custom-variant light (&:is(.light *));
 
 @theme inline {
     --font-heading: var(--font-sans);
@@ -115,6 +116,54 @@
     --sidebar-accent-foreground: oklch(0.985 0 0);
     --sidebar-border: oklch(1 0 0 / 10%);
     --sidebar-ring: oklch(0.556 0 0);
+    --nasa-bg: #040b14;
+    --nasa-bg-secondary: #0b101a;
+    --nasa-bg-tertiary: #131b27;
+    --nasa-bg-hover: #1a2333;
+    --nasa-accent: #fc3d21;
+    --nasa-text: #e2e8f0;
+    --nasa-text-secondary: #94a3b8;
+}
+
+.light {
+    --background: oklch(0.985 0 0);
+    --foreground: oklch(0.145 0 0);
+    --card: oklch(1 0 0);
+    --card-foreground: oklch(0.145 0 0);
+    --popover: oklch(1 0 0);
+    --popover-foreground: oklch(0.145 0 0);
+    --primary: oklch(0.205 0 0);
+    --primary-foreground: oklch(0.985 0 0);
+    --secondary: oklch(0.97 0 0);
+    --secondary-foreground: oklch(0.205 0 0);
+    --muted: oklch(0.97 0 0);
+    --muted-foreground: oklch(0.556 0 0);
+    --accent: oklch(0.97 0 0);
+    --accent-foreground: oklch(0.205 0 0);
+    --destructive: oklch(0.577 0.245 27.325);
+    --border: oklch(0.922 0 0);
+    --input: oklch(0.922 0 0);
+    --ring: oklch(0.708 0 0);
+    --chart-1: oklch(0.87 0 0);
+    --chart-2: oklch(0.556 0 0);
+    --chart-3: oklch(0.439 0 0);
+    --chart-4: oklch(0.371 0 0);
+    --chart-5: oklch(0.269 0 0);
+    --sidebar: oklch(0.985 0 0);
+    --sidebar-foreground: oklch(0.145 0 0);
+    --sidebar-primary: oklch(0.488 0.243 264.376);
+    --sidebar-primary-foreground: oklch(0.985 0 0);
+    --sidebar-accent: oklch(0.97 0 0);
+    --sidebar-accent-foreground: oklch(0.205 0 0);
+    --sidebar-border: oklch(0.922 0 0);
+    --sidebar-ring: oklch(0.708 0 0);
+    --nasa-bg: #f8fafc;
+    --nasa-bg-secondary: #f1f5f9;
+    --nasa-bg-tertiary: #e2e8f0;
+    --nasa-bg-hover: #cbd5e1;
+    --nasa-accent: #dc2626;
+    --nasa-text: #1e293b;
+    --nasa-text-secondary: #64748b;
 }
 
 @layer base {

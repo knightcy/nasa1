@@ -51,8 +51,8 @@ export default function LessonView({ lesson }: LessonViewProps) {
   const renderContent = (content: string) => {
     return content.split('\n\n').map((paragraph, i) => {
       if (paragraph.startsWith('### ')) {
-        return <h3 key={i} className="text-xl font-bold mt-8 mb-4 text-white flex items-center gap-2">
-          <span className="w-1 h-5 bg-[#fc3d21] inline-block rounded-sm"></span>
+        return <h3 key={i} className="text-xl font-bold mt-8 mb-4 text-[var(--nasa-text)] flex items-center gap-2">
+          <span className="w-1 h-5 bg-[var(--nasa-accent)] inline-block rounded-sm"></span>
           {paragraph.replace('### ', '')}
         </h3>;
       }
@@ -66,12 +66,12 @@ export default function LessonView({ lesson }: LessonViewProps) {
               const text = item.replace(/^\d+\.\s/, '');
               const parts = text.split('**');
               return (
-                <div key={j} className="flex gap-3 bg-[#0b101a] p-4 rounded-lg border border-slate-800">
-                  <div className="flex-shrink-0 w-6 h-6 rounded-full bg-[#1a2333] text-[#fc3d21] flex items-center justify-center font-bold text-sm">
+                <div key={j} className="flex gap-3 bg-[var(--nasa-bg-secondary)] p-4 rounded-lg border border-[var(--nasa-bg-hover)]">
+                  <div className="flex-shrink-0 w-6 h-6 rounded-full bg-[var(--nasa-bg-hover)] text-[var(--nasa-accent)] flex items-center justify-center font-bold text-sm">
                     {j + 1}
                   </div>
-                  <div className="text-slate-300 leading-relaxed">
-                    {parts.map((part, k) => k % 2 === 1 ? <strong key={k} className="text-white">{part}</strong> : part)}
+                  <div className="text-[var(--nasa-text-secondary)] leading-relaxed">
+                    {parts.map((part, k) => k % 2 === 1 ? <strong key={k} className="text-[var(--nasa-text)]">{part}</strong> : part)}
                   </div>
                 </div>
               );
@@ -84,12 +84,12 @@ export default function LessonView({ lesson }: LessonViewProps) {
       if (paragraph.startsWith('* ')) {
         const items = paragraph.split('\n').filter(item => item.trim() !== '').map(item => item.replace('* ', ''));
         return (
-          <ul key={i} className="list-disc pl-6 space-y-2 mb-6 text-slate-300 marker:text-[#fc3d21]">
+          <ul key={i} className="list-disc pl-6 space-y-2 mb-6 text-[var(--nasa-text-secondary)] marker:text-[var(--nasa-accent)]">
             {items.map((item, j) => {
               const parts = item.split('**');
               return (
                 <li key={j} className="pl-2">
-                  {parts.map((part, k) => k % 2 === 1 ? <strong key={k} className="text-white">{part}</strong> : part)}
+                  {parts.map((part, k) => k % 2 === 1 ? <strong key={k} className="text-[var(--nasa-text)]">{part}</strong> : part)}
                 </li>
               );
             })}
@@ -100,19 +100,19 @@ export default function LessonView({ lesson }: LessonViewProps) {
       // Handle bold text in paragraphs
       const parts = paragraph.split('**');
       return (
-        <p key={i} className="mb-6 text-slate-300 leading-relaxed text-lg">
-          {parts.map((part, k) => k % 2 === 1 ? <strong key={k} className="text-white">{part}</strong> : part)}
+        <p key={i} className="mb-6 text-[var(--nasa-text-secondary)] leading-relaxed text-lg">
+          {parts.map((part, k) => k % 2 === 1 ? <strong key={k} className="text-[var(--nasa-text)]">{part}</strong> : part)}
         </p>
       );
     });
   };
 
   return (
-    <div className="flex-1 overflow-y-auto bg-[#04070c] relative">
+    <div className="flex-1 overflow-y-auto bg-[var(--nasa-bg)] relative">
       {/* Hero Image Background */}
       {lesson.imageUrl && (
         <div className="absolute top-0 left-0 w-full h-96 z-0">
-          <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#04070c]/80 to-[#04070c] z-10" />
+          <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[var(--nasa-bg)]/80 to-[var(--nasa-bg)] z-10" />
           <img src={lesson.imageUrl} alt={lesson.title} className="w-full h-full object-cover opacity-40" />
         </div>
       )}
@@ -121,24 +121,24 @@ export default function LessonView({ lesson }: LessonViewProps) {
         
         {/* Header */}
         <div className="mb-12 space-y-6 pt-16">
-          <div className="flex items-center gap-3 text-sm text-slate-400 font-medium uppercase tracking-wider">
-            <Badge variant="outline" className="bg-[#fc3d21]/10 text-[#fc3d21] border-[#fc3d21]/30 px-3 py-1">
+          <div className="flex items-center gap-3 text-sm text-[var(--nasa-text-secondary)] font-medium uppercase tracking-wider">
+            <Badge variant="outline" className="bg-[var(--nasa-accent)]/10 text-[var(--nasa-accent)] border-[var(--nasa-accent)]/30 px-3 py-1">
               {lesson.module}
             </Badge>
             <span>{lesson.moduleTitle}</span>
           </div>
-          <h1 className="text-4xl md:text-5xl font-black tracking-tight text-white leading-tight">
+          <h1 className="text-4xl md:text-5xl font-black tracking-tight text-[var(--nasa-text)] leading-tight">
             {lesson.title}
           </h1>
-          <div className="p-6 bg-[#0b101a]/80 backdrop-blur-sm text-slate-300 rounded-xl border border-slate-800 shadow-2xl">
-            <strong className="block mb-2 text-[#fc3d21] uppercase tracking-widest text-sm">Mission Objective</strong>
+          <div className="p-6 bg-[var(--nasa-bg-secondary)]/80 backdrop-blur-sm text-[var(--nasa-text-secondary)] rounded-xl border border-[var(--nasa-bg-hover)] shadow-2xl">
+            <strong className="block mb-2 text-[var(--nasa-accent)] uppercase tracking-widest text-sm">Mission Objective</strong>
             <p className="text-lg leading-relaxed">{lesson.objective}</p>
           </div>
         </div>
 
         {/* Video Embed */}
         {lesson.videoId && (
-          <div className="mb-12 rounded-xl overflow-hidden border border-slate-800 shadow-2xl aspect-video bg-black">
+          <div className="mb-12 rounded-xl overflow-hidden border border-[var(--nasa-bg-hover)] shadow-2xl aspect-video bg-black">
             <iframe 
               width="100%" 
               height="100%" 
@@ -151,7 +151,7 @@ export default function LessonView({ lesson }: LessonViewProps) {
           </div>
         )}
 
-        <Separator className="my-12 bg-slate-800" />
+        <Separator className="my-12 border-[var(--nasa-bg-hover)]" />
 
         {/* Content */}
         <div className="prose prose-invert max-w-none">
@@ -159,13 +159,13 @@ export default function LessonView({ lesson }: LessonViewProps) {
         </div>
 
         {/* Interactive Component */}
-        <div className="my-16 p-1 bg-gradient-to-b from-slate-800 to-slate-900 rounded-2xl shadow-2xl">
-          <div className="bg-[#0b101a] rounded-xl overflow-hidden">
-            <div className="bg-slate-900 px-6 py-3 border-b border-slate-800 flex items-center gap-2">
+        <div className="my-16 p-1 bg-gradient-to-b from-[var(--nasa-bg-hover)] to-[var(--nasa-bg-secondary)] rounded-2xl shadow-2xl">
+          <div className="bg-[var(--nasa-bg-secondary)] rounded-xl overflow-hidden">
+            <div className="bg-[var(--nasa-bg-tertiary)] px-6 py-3 border-b border-[var(--nasa-bg-hover)] flex items-center gap-2">
               <div className="w-3 h-3 rounded-full bg-red-500"></div>
               <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
               <div className="w-3 h-3 rounded-full bg-green-500"></div>
-              <span className="ml-2 text-xs font-mono text-slate-400 uppercase tracking-widest">Interactive Simulator</span>
+              <span className="ml-2 text-xs font-mono text-[var(--nasa-text-secondary)] uppercase tracking-widest">Interactive Simulator</span>
             </div>
             <div className="p-2">
               {renderInteractive()}
@@ -173,22 +173,22 @@ export default function LessonView({ lesson }: LessonViewProps) {
           </div>
         </div>
 
-        <Separator className="my-12 bg-slate-800" />
+        <Separator className="my-12 border-[var(--nasa-bg-hover)]" />
 
         {/* Quiz Section */}
         {lesson.quiz && lesson.quiz.length > 0 && (
           <div className="mt-16 mb-24">
-            <h3 className="text-2xl font-black mb-8 text-white flex items-center gap-3 uppercase tracking-wide">
-              <span className="bg-[#fc3d21] text-white p-2 rounded-lg shadow-lg shadow-[#fc3d21]/20">
+            <h3 className="text-2xl font-black mb-8 text-[var(--nasa-text)] flex items-center gap-3 uppercase tracking-wide">
+              <span className="bg-[var(--nasa-accent)] text-white p-2 rounded-lg shadow-lg shadow-[var(--nasa-accent)]/20">
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
               </span>
               Knowledge Check
             </h3>
             
             {lesson.quiz.map((q, qIndex) => (
-              <Card key={qIndex} className="border-slate-800 bg-[#0b101a] shadow-xl overflow-hidden">
-                <CardHeader className="bg-[#131b27] border-b border-slate-800 py-6">
-                  <CardTitle className="text-xl leading-relaxed text-white font-medium">{q.question}</CardTitle>
+              <Card key={qIndex} className="border-[var(--nasa-bg-hover)] bg-[var(--nasa-bg-secondary)] shadow-xl overflow-hidden">
+                <CardHeader className="bg-[var(--nasa-bg-tertiary)] border-b border-[var(--nasa-bg-hover)] py-6">
+                  <CardTitle className="text-xl leading-relaxed text-[var(--nasa-text)] font-medium">{q.question}</CardTitle>
                 </CardHeader>
                 <CardContent className="p-8 space-y-4">
                   <div className="grid gap-4">
@@ -196,7 +196,7 @@ export default function LessonView({ lesson }: LessonViewProps) {
                       const selectedAnswer = selectedAnswers[qIndex];
                       const showExplanation = showExplanations[qIndex];
                       let variant: "outline" | "default" | "destructive" = "outline";
-                      let className = "justify-start h-auto py-5 px-6 text-left whitespace-normal text-base transition-all duration-200 border-slate-700 text-slate-300 hover:bg-[#1a2333] hover:text-white";
+                      let className = "justify-start h-auto py-5 px-6 text-left whitespace-normal text-base transition-all duration-200 border-[var(--nasa-bg-hover)] text-[var(--nasa-text-secondary)] hover:bg-[var(--nasa-bg-hover)] hover:text-[var(--nasa-text)]";
                       
                       if (showExplanation) {
                         if (oIndex === q.correctAnswer) {
@@ -210,7 +210,7 @@ export default function LessonView({ lesson }: LessonViewProps) {
                         }
                       } else if (selectedAnswer === oIndex) {
                         variant = "default";
-                        className = "justify-start h-auto py-5 px-6 text-left whitespace-normal text-base bg-[#fc3d21] hover:bg-[#d9341c] text-white border-[#fc3d21]";
+                        className = "justify-start h-auto py-5 px-6 text-left whitespace-normal text-base bg-[var(--nasa-accent)] hover:bg-[var(--nasa-accent)] text-white border-[var(--nasa-accent)]";
                       }
 
                       return (
@@ -221,7 +221,7 @@ export default function LessonView({ lesson }: LessonViewProps) {
                           onClick={() => handleAnswer(qIndex, oIndex)}
                           disabled={showExplanation}
                         >
-                          <span className="mr-4 font-bold opacity-70 text-[#fc3d21]">{String.fromCharCode(65 + oIndex)}.</span>
+                          <span className="mr-4 font-bold opacity-70 text-[var(--nasa-accent)]">{String.fromCharCode(65 + oIndex)}.</span>
                           {option}
                         </Button>
                       );
@@ -237,7 +237,7 @@ export default function LessonView({ lesson }: LessonViewProps) {
                       
                       <Button 
                         variant="outline" 
-                        className="mt-6 bg-transparent border-slate-600 text-slate-300 hover:bg-slate-800 hover:text-white"
+                        className="mt-6 bg-transparent border-[var(--nasa-bg-hover)] text-[var(--nasa-text-secondary)] hover:bg-[var(--nasa-bg-hover)] hover:text-[var(--nasa-text)]"
                         onClick={() => {
                           setSelectedAnswers(prev => {
                             const newAnswers = { ...prev };

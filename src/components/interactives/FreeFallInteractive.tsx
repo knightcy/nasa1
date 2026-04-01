@@ -75,12 +75,12 @@ export default function FreeFallInteractive() {
   };
 
   return (
-    <Card className="w-full max-w-2xl mx-auto my-8 border-slate-800 bg-[#0b101a]">
+    <Card className="w-full max-w-2xl mx-auto my-8 border-[var(--nasa-bg-hover)] bg-[var(--nasa-bg-secondary)]">
       <CardHeader>
-        <CardTitle className="text-white">坠落的艺术：微重力的本质</CardTitle>
+        <CardTitle className="text-[var(--nasa-text)]">坠落的艺术：微重力的本质</CardTitle>
       </CardHeader>
       <CardContent className="space-y-8">
-        <div className="relative h-80 bg-slate-900 rounded-lg overflow-hidden">
+        <div className="relative h-80 bg-[var(--nasa-bg-tertiary)] rounded-lg overflow-hidden">
           <Canvas camera={{ position: [0, 0, 10], fov: 50 }}>
             <color attach="background" args={['#020813']} />
             <ambientLight intensity={0.2} />
@@ -92,23 +92,23 @@ export default function FreeFallInteractive() {
         </div>
 
         <div className="flex justify-center gap-4 flex-wrap">
-          <Button onClick={() => startSimulation(0)} variant={velocity === 0 ? "default" : "outline"} className="bg-slate-800 text-white hover:bg-slate-700">
+          <Button onClick={() => startSimulation(0)} variant={velocity === 0 ? "default" : "outline"} className="bg-[var(--nasa-bg-hover)] text-[var(--nasa-text)] hover:bg-[var(--nasa-bg-tertiary)]">
             垂直释放 (自由落体)
           </Button>
-          <Button onClick={() => startSimulation(1)} variant={velocity === 1 ? "default" : "outline"} className="bg-slate-800 text-white hover:bg-slate-700">
+          <Button onClick={() => startSimulation(1)} variant={velocity === 1 ? "default" : "outline"} className="bg-[var(--nasa-bg-hover)] text-[var(--nasa-text)] hover:bg-[var(--nasa-bg-tertiary)]">
             水平抛掷 (抛物线)
           </Button>
-          <Button onClick={() => startSimulation(2)} variant={velocity === 2 ? "default" : "outline"} className="bg-slate-800 text-white hover:bg-slate-700">
+          <Button onClick={() => startSimulation(2)} variant={velocity === 2 ? "default" : "outline"} className="bg-[var(--nasa-bg-hover)] text-[var(--nasa-text)] hover:bg-[var(--nasa-bg-tertiary)]">
             第一宇宙速度 (入轨)
           </Button>
         </div>
 
-        <div className="p-4 bg-slate-800/50 rounded-md border border-slate-700 text-sm text-slate-300">
+        <div className="p-4 bg-[var(--nasa-bg-tertiary)]/50 rounded-md border border-[var(--nasa-bg-hover)] text-sm text-[var(--nasa-text-secondary)]">
           <strong>原理解析：</strong> 
           <ul className="list-disc pl-5 mt-2 space-y-1">
             <li><strong>垂直释放：</strong> 物体在重力作用下直线加速下落。</li>
             <li><strong>水平抛掷：</strong> 物体同时具有水平速度和向下的重力加速度，形成抛物线轨迹。</li>
-            <li><strong>入轨速度 (约7.9 km/s)：</strong> 当水平速度足够大时，物体下落的弧度刚好与地球表面的曲率一致。它在不断“坠落”，但永远落不到地面，这就是国际空间站处于“失重”状态的原因。</li>
+            <li><strong>入轨速度 (约7.9 km/s)：</strong> 当水平速度足够大时，物体下落的弧度刚好与地球表面的曲率一致。它在不断"坠落"，但永远落不到地面，这就是国际空间站处于"失重"状态的原因。</li>
           </ul>
         </div>
       </CardContent>

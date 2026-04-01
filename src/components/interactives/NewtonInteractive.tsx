@@ -60,12 +60,12 @@ export default function NewtonInteractive() {
   const [force, setForce] = useState([50]);
 
   return (
-    <Card className="w-full max-w-2xl mx-auto my-8 border-slate-800 bg-[#0b101a]">
+    <Card className="w-full max-w-2xl mx-auto my-8 border-[var(--nasa-bg-hover)] bg-[var(--nasa-bg-secondary)]">
       <CardHeader>
-        <CardTitle className="text-white">牛顿第三定律演示：火箭推进</CardTitle>
+        <CardTitle className="text-[var(--nasa-text)]">牛顿第三定律演示：火箭推进</CardTitle>
       </CardHeader>
       <CardContent className="space-y-8">
-        <div className="relative h-64 bg-slate-900 rounded-lg overflow-hidden">
+        <div className="relative h-64 bg-[var(--nasa-bg-tertiary)] rounded-lg overflow-hidden">
           <Canvas camera={{ position: [0, 0, 10], fov: 50 }}>
             <color attach="background" args={['#020813']} />
             <ambientLight intensity={0.5} />
@@ -95,7 +95,7 @@ export default function NewtonInteractive() {
         </div>
 
         <div className="space-y-4">
-          <div className="flex justify-between items-center text-slate-200">
+          <div className="flex justify-between items-center text-[var(--nasa-text)]">
             <label className="font-medium">喷射气体力大小: {force[0]} N</label>
           </div>
           <Slider 
@@ -105,7 +105,7 @@ export default function NewtonInteractive() {
             step={1} 
             className="w-full"
           />
-          <p className="text-sm text-slate-400 text-center mt-4">
+          <p className="text-sm text-[var(--nasa-text-secondary)] text-center mt-4">
             拖动滑块改变气体喷出的力。根据牛顿第三定律，气体向后喷出的作用力越大，火箭获得向前的反作用力也越大。
           </p>
         </div>

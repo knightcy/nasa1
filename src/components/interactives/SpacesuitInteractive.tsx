@@ -107,19 +107,19 @@ export default function SpacesuitInteractive() {
   };
 
   return (
-    <Card className="w-full max-w-2xl mx-auto my-8 border-slate-800 bg-[#0b101a]">
+    <Card className="w-full max-w-2xl mx-auto my-8 border-[var(--nasa-bg-hover)] bg-[var(--nasa-bg-secondary)]">
       <CardHeader>
-        <CardTitle className="text-white">南极生存：太空服手套灵巧性测试</CardTitle>
+        <CardTitle className="text-[var(--nasa-text)]">南极生存：太空服手套灵巧性测试</CardTitle>
       </CardHeader>
       <CardContent className="space-y-8">
         <div className="flex justify-between items-center">
-          <span className="font-bold text-lg text-slate-200">得分: {score}</span>
+          <span className="font-bold text-lg text-[var(--nasa-text)]">得分: {score}</span>
           <Button onClick={startGame} disabled={isPlaying} className="bg-blue-600 hover:bg-blue-700 text-white">
             {isPlaying ? '测试进行中...' : '开始30秒测试'}
           </Button>
         </div>
 
-        <div className="relative h-96 bg-slate-900 rounded-lg overflow-hidden cursor-none border border-slate-700">
+        <div className="relative h-96 bg-[var(--nasa-bg-tertiary)] rounded-lg overflow-hidden cursor-none border border-[var(--nasa-bg-hover)]">
           <Canvas 
             camera={{ position: [0, 0, 10], fov: 50 }}
             onPointerMove={handlePointerMove}
@@ -146,20 +146,20 @@ export default function SpacesuitInteractive() {
           
           {!isPlaying && score === 0 && (
             <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-              <span className="text-slate-400 text-lg">点击“开始测试”</span>
+              <span className="text-[var(--nasa-text-secondary)] text-lg">点击"开始测试"</span>
             </div>
           )}
           {!isPlaying && score > 0 && (
-            <div className="absolute inset-0 flex items-center justify-center pointer-events-none bg-slate-900/80">
+            <div className="absolute inset-0 flex items-center justify-center pointer-events-none bg-[var(--nasa-bg-tertiary)]/80">
               <div className="text-center">
-                <h3 className="text-2xl font-bold text-white mb-2">测试结束</h3>
-                <p className="text-slate-300">最终得分: {score}</p>
+                <h3 className="text-2xl font-bold text-[var(--nasa-text)] mb-2">测试结束</h3>
+                <p className="text-[var(--nasa-text-secondary)]">最终得分: {score}</p>
               </div>
             </div>
           )}
         </div>
 
-        <div className="p-4 bg-slate-800/50 rounded-md border border-slate-700 text-sm text-slate-300">
+        <div className="p-4 bg-[var(--nasa-bg-tertiary)]/50 rounded-md border border-[var(--nasa-bg-hover)] text-sm text-[var(--nasa-text-secondary)]">
           <strong>原理解析：</strong> 
           在加压的太空服（EVA服）中，手套就像充满了高压气体的气球。宇航员每次弯曲手指都需要克服气压的阻力，这极大地消耗了体力，并降低了手指的灵巧性。
           <br/><br/>

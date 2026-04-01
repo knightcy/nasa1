@@ -154,12 +154,12 @@ export default function RoverInteractive() {
   };
 
   return (
-    <Card className="w-full max-w-2xl mx-auto my-8 border-slate-800 bg-[#0b101a]">
+    <Card className="w-full max-w-2xl mx-auto my-8 border-[var(--nasa-bg-hover)] bg-[var(--nasa-bg-secondary)]">
       <CardHeader>
-        <CardTitle className="text-white">火星制图师：探测器路径规划</CardTitle>
+        <CardTitle className="text-[var(--nasa-text)]">火星制图师：探测器路径规划</CardTitle>
       </CardHeader>
       <CardContent className="space-y-8">
-        <div className="relative h-96 bg-slate-900 rounded-lg overflow-hidden">
+        <div className="relative h-96 bg-[var(--nasa-bg-tertiary)] rounded-lg overflow-hidden">
           <Canvas camera={{ position: [0, 8, 8], fov: 50 }}>
             <color attach="background" args={['#020813']} />
             <ambientLight intensity={0.3} />
@@ -192,23 +192,23 @@ export default function RoverInteractive() {
         <div className="flex flex-col items-center gap-4">
           <div className="grid grid-cols-3 gap-2 w-48">
             <div />
-            <Button variant="outline" onClick={() => moveRover(0, -1)} disabled={gameOver} className="border-slate-600 text-slate-300 hover:bg-slate-800">↑</Button>
+            <Button variant="outline" onClick={() => moveRover(0, -1)} disabled={gameOver} className="border-[var(--nasa-bg-hover)] text-[var(--nasa-text-secondary)] hover:bg-[var(--nasa-bg-hover)]">↑</Button>
             <div />
-            <Button variant="outline" onClick={() => moveRover(-1, 0)} disabled={gameOver} className="border-slate-600 text-slate-300 hover:bg-slate-800">←</Button>
-            <Button variant="outline" onClick={() => moveRover(0, 1)} disabled={gameOver} className="border-slate-600 text-slate-300 hover:bg-slate-800">↓</Button>
-            <Button variant="outline" onClick={() => moveRover(1, 0)} disabled={gameOver} className="border-slate-600 text-slate-300 hover:bg-slate-800">→</Button>
+            <Button variant="outline" onClick={() => moveRover(-1, 0)} disabled={gameOver} className="border-[var(--nasa-bg-hover)] text-[var(--nasa-text-secondary)] hover:bg-[var(--nasa-bg-hover)]">←</Button>
+            <Button variant="outline" onClick={() => moveRover(0, 1)} disabled={gameOver} className="border-[var(--nasa-bg-hover)] text-[var(--nasa-text-secondary)] hover:bg-[var(--nasa-bg-hover)]">↓</Button>
+            <Button variant="outline" onClick={() => moveRover(1, 0)} disabled={gameOver} className="border-[var(--nasa-bg-hover)] text-[var(--nasa-text-secondary)] hover:bg-[var(--nasa-bg-hover)]">→</Button>
           </div>
 
           <div className="flex gap-4 items-center">
-            <Button variant="secondary" onClick={reset} className="bg-slate-700 hover:bg-slate-600 text-white">重置任务</Button>
-            <span className={`font-medium ${message.includes('失败') ? 'text-red-500' : message.includes('成功') ? 'text-green-500' : 'text-slate-300'}`}>
+            <Button variant="secondary" onClick={reset} className="bg-[var(--nasa-bg-hover)] hover:bg-[var(--nasa-bg-tertiary)] text-[var(--nasa-text)]">重置任务</Button>
+            <span className={`font-medium ${message.includes('失败') ? 'text-red-500' : message.includes('成功') ? 'text-green-500' : 'text-[var(--nasa-text-secondary)]'}`}>
               {message}
             </span>
           </div>
         </div>
 
-        <div className="p-4 bg-slate-800/50 rounded-md border border-slate-700 text-sm text-slate-300">
-          <strong>原理解析：</strong> 
+        <div className="p-4 bg-[var(--nasa-bg-tertiary)]/50 rounded-md border border-[var(--nasa-bg-hover)] text-sm text-[var(--nasa-text-secondary)]">
+          <strong>原原理解析：</strong> 
           火星车（如毅力号、好奇号）在火星表面行驶时，必须避开深坑、陡坡和松软的沙地。由于地球和火星之间存在几分钟到二十几分钟的通信延迟，火星车不能像遥控汽车一样实时驾驶。
           <br/><br/>
           <strong>自主导航：</strong> 

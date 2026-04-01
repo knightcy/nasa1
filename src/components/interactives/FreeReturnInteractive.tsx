@@ -58,12 +58,12 @@ function TrajectorySystem() {
 
 export default function FreeReturnInteractive() {
   return (
-    <Card className="w-full max-w-2xl mx-auto my-8 border-slate-800 bg-[#0b101a]">
+    <Card className="w-full max-w-2xl mx-auto my-8 border-[var(--nasa-bg-hover)] bg-[var(--nasa-bg-secondary)]">
       <CardHeader>
-        <CardTitle className="text-white">地月转移：自由返回轨道 (Free-Return Trajectory)</CardTitle>
+        <CardTitle className="text-[var(--nasa-text)]">地月转移：自由返回轨道 (Free-Return Trajectory)</CardTitle>
       </CardHeader>
       <CardContent className="space-y-8">
-        <div className="relative h-80 bg-slate-900 rounded-lg overflow-hidden">
+        <div className="relative h-80 bg-[var(--nasa-bg-tertiary)] rounded-lg overflow-hidden">
           <Canvas camera={{ position: [0, 8, 0], fov: 50 }}>
             <color attach="background" args={['#020813']} />
             <ambientLight intensity={0.2} />
@@ -72,14 +72,14 @@ export default function FreeReturnInteractive() {
             <TrajectorySystem />
             <OrbitControls enableZoom={false} enablePan={false} />
           </Canvas>
-          <div className="absolute top-2 right-2 text-xs text-slate-400 pointer-events-none bg-slate-900/80 p-1 rounded">
+          <div className="absolute top-2 right-2 text-xs text-[var(--nasa-text-secondary)] pointer-events-none bg-[var(--nasa-bg-tertiary)]/80 p-1 rounded">
             拖动旋转视角
           </div>
         </div>
 
-        <div className="p-4 bg-slate-800/50 rounded-md border border-slate-700 text-sm text-slate-300">
+        <div className="p-4 bg-[var(--nasa-bg-tertiary)]/50 rounded-md border border-[var(--nasa-bg-hover)] text-sm text-[var(--nasa-text-secondary)]">
           <strong>原理解析：</strong> 
-          自由返回轨道是一种特殊的绕月轨道设计。如果飞船的发动机在月球附近发生故障（如著名的阿波罗13号），飞船可以利用月球的引力弹弓效应，自动沿着“8字型”轨迹被甩回地球。
+          自由返回轨道是一种特殊的绕月轨道设计。如果飞船的发动机在月球附近发生故障（如著名的阿波罗13号），飞船可以利用月球的引力弹弓效应，自动沿着"8字型"轨迹被甩回地球。
           <br/><br/>
           <strong>容错机制：</strong> 
           这种轨道设计提供了一个关键的被动安全机制。它不需要飞船在月球附近进行任何变轨机动，只要初始轨道计算精确，飞船就会自然而然地返回地球大气层的再入走廊。

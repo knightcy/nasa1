@@ -80,12 +80,12 @@ export default function CgCpInteractive() {
   const isStable = cpPos[0] > cgPos[0];
 
   return (
-    <Card className="w-full max-w-2xl mx-auto my-8 border-slate-800 bg-[#0b101a]">
+    <Card className="w-full max-w-2xl mx-auto my-8 border-[var(--nasa-bg-hover)] bg-[var(--nasa-bg-secondary)]">
       <CardHeader>
-        <CardTitle className="text-white">气动稳定性：重心(CG)与压力中心(CP)</CardTitle>
+        <CardTitle className="text-[var(--nasa-text)]">气动稳定性：重心(CG)与压力中心(CP)</CardTitle>
       </CardHeader>
       <CardContent className="space-y-8">
-        <div className="relative h-80 bg-slate-900 rounded-lg overflow-hidden">
+        <div className="relative h-80 bg-[var(--nasa-bg-tertiary)] rounded-lg overflow-hidden">
           <Canvas camera={{ position: [0, 0, 8], fov: 50 }}>
             <color attach="background" args={['#020813']} />
             <ambientLight intensity={0.5} />
@@ -115,7 +115,7 @@ export default function CgCpInteractive() {
               step={1} 
               className="w-full"
             />
-            <p className="text-xs text-slate-400">通过改变火箭内部载荷分布来调整重心。</p>
+            <p className="text-xs text-[var(--nasa-text-secondary)]">通过改变火箭内部载荷分布来调整重心。</p>
           </div>
 
           <div className="space-y-2">
@@ -129,10 +129,10 @@ export default function CgCpInteractive() {
               step={1} 
               className="w-full"
             />
-            <p className="text-xs text-slate-400">通过改变尾翼大小和形状来调整压力中心。</p>
+            <p className="text-xs text-[var(--nasa-text-secondary)]">通过改变尾翼大小和形状来调整压力中心。</p>
           </div>
 
-          <div className="p-4 bg-slate-800/50 rounded-md border border-slate-700 text-sm text-slate-300">
+          <div className="p-4 bg-[var(--nasa-bg-tertiary)]/50 rounded-md border border-[var(--nasa-bg-hover)] text-sm text-[var(--nasa-text-secondary)]">
             <strong>原理：</strong> 气动力作用在CP上。如果CP在CG前方，气动力会产生一个让火箭偏离航向的力矩，导致翻滚。如果CP在CG后方，气动力会产生恢复力矩，使火箭像飞镖一样保持稳定。
           </div>
         </div>
