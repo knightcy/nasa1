@@ -151,7 +151,7 @@ export default function LessonView({ lesson }: LessonViewProps) {
           </div>
         )}
 
-        <Separator className="my-12 border-[var(--nasa-bg-hover)]" />
+        <Separator className="my-12 bg-[var(--nasa-bg-hover)]" />
 
         {/* Content */}
         <div className="prose prose-invert max-w-none">
@@ -173,7 +173,7 @@ export default function LessonView({ lesson }: LessonViewProps) {
           </div>
         </div>
 
-        <Separator className="my-12 border-[var(--nasa-bg-hover)]" />
+        <Separator className="my-12 bg-[var(--nasa-bg-hover)]" />
 
         {/* Quiz Section */}
         {lesson.quiz && lesson.quiz.length > 0 && (
@@ -229,7 +229,7 @@ export default function LessonView({ lesson }: LessonViewProps) {
                   </div>
 
                   {showExplanations[qIndex] && (
-                    <div className={`mt-8 p-6 rounded-xl border ${selectedAnswers[qIndex] === q.correctAnswer ? 'bg-green-900/20 border-green-800 text-green-100' : 'bg-red-900/20 border-red-800 text-red-100'}`}>
+                    <div className={`mt-8 p-6 rounded-xl border ${selectedAnswers[qIndex] === q.correctAnswer ? 'bg-green-100 border-green-300 text-green-800' : 'bg-red-100 border-red-300 text-red-800'}`}>
                       <div className="font-bold mb-3 flex items-center gap-2 text-lg">
                         {selectedAnswers[qIndex] === q.correctAnswer ? '✅ Correct!' : '❌ Incorrect.'}
                       </div>
