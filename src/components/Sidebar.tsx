@@ -25,7 +25,7 @@ export default function Sidebar({ currentLessonId, onSelectLesson }: SidebarProp
   }, {} as Record<string, { title: string; lessons: typeof courseData }>);
 
   return (
-    <div className="w-96 h-screen border-r border-[var(--nasa-bg-hover)] bg-[var(--nasa-bg-secondary)] flex flex-col">
+    <div className="w-96 h-screen border-r border-[var(--nasa-bg-hover)] bg-[var(--nasa-bg-secondary)] flex flex-col overflow-x-hidden">
       <div className="p-6 border-b border-[var(--nasa-bg-hover)] bg-[var(--nasa-bg)]">
         <div className="flex items-center justify-between">
           <h1 className="text-3xl font-black tracking-tighter text-[var(--nasa-text)] flex items-center gap-2">

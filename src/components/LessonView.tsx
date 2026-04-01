@@ -108,7 +108,7 @@ export default function LessonView({ lesson }: LessonViewProps) {
   };
 
   return (
-    <div className="flex-1 overflow-y-auto bg-[var(--nasa-bg)] relative">
+    <div className="flex-1 overflow-y-auto overflow-x-hidden bg-[var(--nasa-bg)] relative">
       {/* Hero Image Background */}
       {lesson.imageUrl && (
         <div className="absolute top-0 left-0 w-full h-96 z-0">

@@ -15,7 +15,7 @@ function AppContent() {
   const currentLesson = courseData.find(l => l.id === currentLessonId) || courseData[0];
 
   return (
-    <div className="light flex h-screen bg-[var(--nasa-bg)] text-[var(--nasa-text)] font-sans">
+    <div className="flex h-screen bg-[var(--nasa-bg)] text-[var(--nasa-text)] font-sans">
       <Sidebar 
         currentLessonId={currentLessonId} 
         onSelectLesson={setCurrentLessonId} 
